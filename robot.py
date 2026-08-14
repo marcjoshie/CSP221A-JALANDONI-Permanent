@@ -1,4 +1,7 @@
 from abc import ABC, abstractmethod
+import logging
+
+logging.basicConfig(level=logging.INFO)
 
 class InsufficientBatteryError(Exception):
 
@@ -69,11 +72,24 @@ class CleaningRobot(Robot):
 
 class DroneRobot(Robot):
 
-    def __init__(self, name, battery=100, max_altitude=120):
+    def __init__(self, name, battery=5, max_altitude=120):
         super().__init__(name, battery)
         self.max_altitude = max_altitude
 
     def perform_task(self):
         self.use_battery(20)
         return f"{self.name} is flying and surveying the area."
-    
+
+
+def run_task_safely(robot, **kwargs):
+    try:
+        result = robot.perform_task(**kwargs)
+
+    except InsufficientBatteryError as error:
+        logging.error(error)
+
+    else:
+        print(result)
+
+    finally:
+        print(f"{robot.name} now has {robot.battery}% battery.")

@@ -1,16 +1,14 @@
-from robot import CleaningRobot, DroneRobot
+from robot import CleaningRobot, DroneRobot, run_task_safely
 
 
 cleaner = CleaningRobot("Roomba")
 drone = DroneRobot("Aqua-Drone")
 
 
-print(cleaner)
-print(cleaner.perform_task())
-print(cleaner)
+print("Cleaning Robot:")
+run_task_safely(cleaner)
 
 print()
 
-print(drone)
-print(drone.perform_task())
-print(drone)
+print("Drone Robot:")
+run_task_safely(drone)
