@@ -43,3 +43,12 @@ class CleaningRobot(Robot):
     def perform_task(self):
         return f"{self.name} is cleaning the floor."
 
+class DroneRobot(Robot):
+
+    def __init__(self, name, battery=100, max_altitude=120):
+        super().__init__(name, battery)
+        self.max_altitude = max_altitude
+
+    def perform_task(self):
+        return f"{self.name} is flying and surveying the area."
+
