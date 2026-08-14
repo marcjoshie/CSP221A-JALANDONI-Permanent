@@ -18,3 +18,4 @@ print()
 
 for robot in robots:
     run_task_safely(robot)
+    print(CleaningRobot.perform_task.__name__)
