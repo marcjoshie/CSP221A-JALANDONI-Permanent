@@ -1,14 +1,20 @@
-from robot import CleaningRobot, DroneRobot, run_task_safely
+from robot import (
+    CleaningRobot,
+    DroneRobot,
+    run_task_safely,
+    fleet_report
+)
 
 
 cleaner = CleaningRobot("Roomba")
-drone = DroneRobot("Aqua-Drone")
+drone = DroneRobot("Aqua-Drone", battery=80)
+
+robots = [cleaner, drone]
 
 
-print("Cleaning Robot:")
-run_task_safely(cleaner)
+fleet_report(robots)
 
 print()
 
-print("Drone Robot:")
-run_task_safely(drone)
+for robot in robots:
+    run_task_safely(robot)

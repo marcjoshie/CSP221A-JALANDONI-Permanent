@@ -93,3 +93,9 @@ def run_task_safely(robot, **kwargs):
 
     finally:
         print(f"{robot.name} now has {robot.battery}% battery.")
+
+def fleet_report(robots):
+    print("Fleet Report")
+
+    for robot in robots:
+        print(str(robot))
