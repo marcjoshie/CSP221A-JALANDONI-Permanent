@@ -68,6 +68,13 @@ class Robot(ABC):
                 self.battery
             )
         self.battery -= amount
+        
+    @classmethod
+    def from_config(cls, config):
+        return cls(
+        name=config["name"],
+        battery=config.get("battery", 100)
+    )
 
     @abstractmethod
     def perform_task(self):
