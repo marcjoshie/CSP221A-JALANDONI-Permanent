@@ -33,7 +33,7 @@ class InsufficientBatteryError(Exception):
         super().__init__(message)
 
 class Robot(ABC):
-    manufacturer = "RoboTech"
+    manufacturer = "WrongTech"
     population = 0
 
     def __init__(self, name, battery=100):
